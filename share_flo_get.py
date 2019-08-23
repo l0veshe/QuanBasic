@@ -1,4 +1,3 @@
-import seaborn as sns; sns.set()
 import jqdatasdk as jq
 import datetime
 from pymongo import MongoClient
