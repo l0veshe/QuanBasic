@@ -30,7 +30,6 @@ else:
 # stocks_hourly = stock_a_db['stocks_hourly']
 
 all_stocks_name = jq.get_all_securities()
-date_str = datetime.datetime.now().strftime("%Y-%m-%d")
 
 all_stocks_name_list = list(all_stocks_name.index)
 # 取得股本情况
@@ -38,6 +37,7 @@ basic_stocks_plus_1 = jq.get_fundamentals(
     jq.query(jq.valuation).filter(jq.valuation.code.in_(all_stocks_name_list)), date=date_str)
 basic_stocks_plus_1 = basic_stocks_plus_1.set_index("code")[
     ['day', 'capitalization', 'circulating_cap', 'market_cap', 'circulating_market_cap', 'turnover_ratio']]
+basic_stocks_plus_1['day'] = date_str
 # 取股票日candle
 basic_stocks_plus_2 = jq.get_price(all_stocks_name_list, start_date=date_str,
                                    end_date=date_str, frequency='1d').major_xs(date_str)
