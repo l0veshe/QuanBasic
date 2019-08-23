@@ -1,10 +1,6 @@
-import matplotlib.pyplot as plt
 import seaborn as sns; sns.set()
-import numpy as np
-import pandas as pd
 import jqdatasdk as jq
 import datetime
-import logging
 from pymongo import MongoClient
 
 jq.auth('15804268950','3834259hanK')
