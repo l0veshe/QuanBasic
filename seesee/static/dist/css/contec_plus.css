@@ -1,0 +1,25 @@
+.region_select {
+    height: 30px;width: 100%;
+    -webkit-appearance: none;
+    background-color: #0a0a0a;
+    color: white;
+    text-align: center;
+    text-align-last: center;
+    border-radius:0px;
+}
+
+.region_option {
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+
+    background-color: #0a0a0a;
+    color: white;
+    text-align: center;
+    text-align-last: center;
+    border-radius:0px;
+
+    border: solid 1px #000;
+    padding-right: 14px;
+
+}
