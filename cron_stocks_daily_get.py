@@ -3,9 +3,10 @@ import jqdatasdk as jq
 import datetime
 import pandas as pd
 import sys
+from dateutil import parser
 
 """
-开盘日收盘后执行
+开盘日收盘后执行.1
 
 """
 
@@ -37,7 +38,7 @@ basic_stocks_plus_1 = jq.get_fundamentals(
     jq.query(jq.valuation).filter(jq.valuation.code.in_(all_stocks_name_list)), date=date_str)
 basic_stocks_plus_1 = basic_stocks_plus_1.set_index("code")[
     ['day', 'capitalization', 'circulating_cap', 'market_cap', 'circulating_market_cap', 'turnover_ratio']]
-basic_stocks_plus_1['day'] = date_str
+basic_stocks_plus_1['day'] = parser.parse(date_str + 'T00:00:00.000Z')
 # 取股票日candle
 basic_stocks_plus_2 = jq.get_price(all_stocks_name_list, start_date=date_str,
                                    end_date=date_str, frequency='1d').major_xs(date_str)
