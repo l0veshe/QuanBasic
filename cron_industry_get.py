@@ -31,6 +31,7 @@ def reset_industry(industry):
             industry_stock[one_stock] = []
             industry_stock[one_stock].append(industry.cname)
     return stocks
+concepts['stocks'] = concepts.apply(lambda industry: reset_industry(industry), axis=1)
 
 
 # 板块 concepts
